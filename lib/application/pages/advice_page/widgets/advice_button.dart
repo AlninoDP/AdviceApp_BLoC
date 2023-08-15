@@ -1,4 +1,6 @@
+import 'package:adviceapp/application/pages/advice_page/cubit/advicer_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AdviceButton extends StatelessWidget {
   const AdviceButton({super.key});
@@ -10,7 +12,9 @@ class AdviceButton extends StatelessWidget {
         elevation: 20,
         color: Colors.transparent,
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            BlocProvider.of<AdvicerCubit>(context).adviceRequested();
+          },
           borderRadius: BorderRadius.circular(10),
           child: Ink(
             padding: const EdgeInsets.all(15.0),
