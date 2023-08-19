@@ -45,11 +45,11 @@ class AdvicePage extends StatelessWidget {
                     return CircularProgressIndicator(
                         color: Colors.deepPurple[200]);
                   } else if (state is AdvicerStateLoaded) {
-                    return const AdviceField(
-                        adviceText: 'This is An Example Advice - Good Day');
+                    return AdviceField(adviceText: state.advice);
+                  } else if (state is AdvicerStateError) {
+                    return ErrorMessage(message: state.errorMsg);
                   }
-                  return const ErrorMessage(
-                      message: "Error Happened Please Try Again");
+                  return const SizedBox();
                 },
               ),
             )),
