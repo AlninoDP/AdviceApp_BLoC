@@ -1,4 +1,5 @@
 import 'package:adviceapp/data/data_sources/remote_datasources/advice_remote_datasource_impl.dart';
+import 'package:adviceapp/data/exception/exception.dart';
 import 'package:adviceapp/domain/entities/advice_entity.dart';
 import 'package:adviceapp/domain/failures/failures.dart';
 import 'package:adviceapp/domain/repositories/advice_repository.dart';
@@ -9,7 +10,13 @@ class AdviceRepositoryImpl implements AdviceRepository {
       AdviceRemoteDatasourceImpl();
   @override
   Future<Either<AdviceEntity, Failures>> getAdviceFromDatasource() async {
-    final result = await adviceRemoteDatasourceImpl.getRandomAdviceFromApi();
-    return left(result);
+    try {
+      final result = await adviceRemoteDatasourceImpl.getRandomAdviceFromApi();
+      return left(result);
+    } on ServerException catch (_) {
+      return right(ServerFailures());
+    } catch (e) {
+      return right(GeneralFailures());
+    }
   }
 }
