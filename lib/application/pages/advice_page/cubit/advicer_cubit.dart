@@ -10,8 +10,8 @@ const chacheFailuresMessage = 'Uh Oh Chache Failed, Please Try Again';
 const serverFailuresMessage = 'Uh Oh API Error, Please Try Again';
 
 class AdvicerCubit extends Cubit<AdvicerState> {
-  AdvicerCubit() : super(AdvicerInitial());
-  final AdviceUsecase adviceUsecase = AdviceUsecase();
+  final AdviceUsecase adviceUsecase;
+  AdvicerCubit({required this.adviceUsecase}) : super(AdvicerInitial());
   void adviceRequested() async {
     emit(AdvicerStateLoading());
     final adviceOrFailure = await adviceUsecase.getAdvice();

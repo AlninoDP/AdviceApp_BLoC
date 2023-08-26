@@ -6,7 +6,8 @@ import 'package:adviceapp/data/models/advice_model.dart';
 import 'package:http/http.dart' as http;
 
 class AdviceRemoteDatasourceImpl implements AdviceRemoteDatasource {
-  final client = http.Client();
+  final http.Client client;
+  AdviceRemoteDatasourceImpl({required this.client});
   @override
   Future<AdviceModel> getRandomAdviceFromApi() async {
     /// send http request and put the http response in this variable
