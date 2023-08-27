@@ -2,6 +2,7 @@ import 'package:adviceapp/application/pages/advice_page/advice_page.dart';
 import 'package:flutter/material.dart';
 import 'package:adviceapp/injection.dart' as di; // di = Dependency Injection
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,10 +19,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Advicer',
+      theme: ThemeData(
+        textTheme: GoogleFonts.robotoSlabTextTheme(),
+      ),
       debugShowCheckedModeBanner: false,
-      home: AdvicePageWrapper(),
+      home: const AdvicePageWrapper(),
     );
   }
 }
