@@ -18,7 +18,7 @@ class AdviceRemoteDatasourceImpl implements AdviceRemoteDatasource {
     if (response.statusCode != 200) {
       throw ServerException();
     } else {
-      /// put the response body into this variable and conver it from string to json
+      /// put the response body into this variable and convert it from string to json
       /// since json type is like a Map, this variable will have like this
       /// 'advice_id' : 'value',
       /// 'advice':'value'
