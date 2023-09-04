@@ -12,6 +12,7 @@ const serverFailuresMessage = 'Uh Oh API Error, Please Try Again';
 class AdvicerCubit extends Cubit<AdvicerState> {
   final AdviceUsecase adviceUsecase;
   AdvicerCubit({required this.adviceUsecase}) : super(AdvicerInitial());
+
   void adviceRequested() async {
     emit(AdvicerStateLoading());
     final adviceOrFailure = await adviceUsecase.getAdvice();
