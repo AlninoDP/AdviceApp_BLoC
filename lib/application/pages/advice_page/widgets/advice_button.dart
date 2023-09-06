@@ -17,7 +17,7 @@ class AdviceButton extends StatelessWidget {
             padding: const EdgeInsets.all(15.0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: Colors.deepPurple[100],
+              color: onTap == null ? Colors.grey : Colors.deepPurple[100],
             ),
             child: const Text(
               "Get Advice",
