@@ -58,8 +58,9 @@ class AdvicePage extends StatelessWidget {
                 height: 100,
                 child: Center(
                   child: AdviceButton(
-                      onTap: () => BlocProvider.of<AdvicerCubit>(context)
-                          .adviceRequested()),
+                    onTap: () => BlocProvider.of<AdvicerCubit>(context)
+                        .adviceRequested(),
+                  ),
                 )),
           ],
         ),
